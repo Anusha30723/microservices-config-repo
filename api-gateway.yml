@@ -12,7 +12,6 @@ eureka:
 jwt:
   secret: myverysecuresecretkeythatisatleast32characterslong!!
 
-spring:
   cloud:
     gateway:
       routes:
