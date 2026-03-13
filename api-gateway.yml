@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 8084
+
+eureka:
+  client:
+    enabled: false
+
+jwt:
+  secret: myverysecuresecretkeythatisatleast32characterslong!!
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: employee-service
+          uri: http://localhost:8080
+          predicates:
+            - Path=/employee/**
+        - id: payroll-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/payroll/**
+        - id: notification-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/notification/**
+        - id: auth-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/auth/**
+        - id: auth-user-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/user/**
