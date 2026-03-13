@@ -1,17 +1,15 @@
-# application.yml (shared)
 spring:
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
 
-# Shared security settings across services (ex: same JWT secret)
-security:
-  jwt:
-    secret: myverysecuresecretkeythatisatleast32characterslong!!
-    expiration: 3600000
+# Shared security settings across services (same JWT secret everywhere)
+jwt:
+  secret: myverysecuresecretkeythatisatleast32characterslong!!
+  expiration: 3600000
 
-# If you later adopt Eureka for all services:
+# Shared Eureka config (overrides per service if needed)
 eureka:
   client:
     service-url:
