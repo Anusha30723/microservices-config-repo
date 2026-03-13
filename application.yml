@@ -1,0 +1,18 @@
+# application.yml (shared)
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Shared security settings across services (ex: same JWT secret)
+security:
+  jwt:
+    secret: myverysecuresecretkeythatisatleast32characterslong!!
+    expiration: 3600000
+
+# If you later adopt Eureka for all services:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
