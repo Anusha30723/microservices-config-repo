@@ -2,14 +2,6 @@ spring:
   application:
     name: auth-service
 
-server:
-  port: 8083
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
   datasource:
     url: jdbc:mysql://localhost:3306/userauthDB
     username: root
@@ -27,3 +19,11 @@ eureka:
 jwt:
   secret: myverysecuresecretkeythatisatleast32characterslong!!
   expiration: 3600000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8083
