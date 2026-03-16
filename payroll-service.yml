@@ -2,15 +2,7 @@ spring:
   application:
     name: payroll-service
 
-server:
-  port: 8081
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
-datasource:
+  datasource:
     url: jdbc:mysql://localhost:3306/payrollDB
     username: root
     password: root
@@ -23,3 +15,12 @@ datasource:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8081
