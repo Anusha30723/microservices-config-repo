@@ -23,3 +23,11 @@ management:
   endpoint:
     health:
       show-details: always
+
+  logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    com.example: DEBUG
+  file:
+    name: logs/application.log
