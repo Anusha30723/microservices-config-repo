@@ -2,36 +2,20 @@ spring:
   application:
     name: api-gateway
 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true   # helpful if service IDs are upper-case in Eureka
+
 server:
   port: 8084
 
 eureka:
   client:
-    enabled: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
 
 jwt:
   secret: myverysecuresecretkeythatisatleast32characterslong!!
-
-  cloud:
-    gateway:
-      routes:
-        - id: employee-service
-          uri: http://localhost:8080
-          predicates:
-            - Path=/employee/**
-        - id: payroll-service
-          uri: http://localhost:8081
-          predicates:
-            - Path=/payroll/**
-        - id: notification-service
-          uri: http://localhost:8082
-          predicates:
-            - Path=/notification/**
-        - id: auth-service
-          uri: http://localhost:8083
-          predicates:
-            - Path=/auth/**
-        - id: auth-user-service
-          uri: http://localhost:8083
-          predicates:
-            - Path=/user/**
